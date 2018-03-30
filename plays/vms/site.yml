@@ -1,0 +1,7 @@
+---
+
+- name: Setup VMS
+  hosts: vms
+  become: true
+  roles:
+    - base
