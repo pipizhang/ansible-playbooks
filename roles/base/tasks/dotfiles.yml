@@ -1,0 +1,25 @@
+---
+# file: roles/base/tasks/user.yml
+- name: dotfiles - Install .curlrc
+  copy:
+    src: "default.curlrc"
+    dest: "~{{ item.name }}/.curlrc"
+  with_items: "{{ users }}"
+  when: users is not none
+  tags: dotfiles
+
+- name: dotfiles - Install .gitconfig
+  copy:
+    src: "default.gitconfig"
+    dest: "~{{ item.name }}/.gitconfig"
+  with_items: "{{ users }}"
+  when: users is not none
+  tags: dotfiles
+
+- name: dotfiles - Install .vimrc
+  copy:
+    src: "default.vimrc"
+    dest: "~{{ item.name }}/.vimrc"
+  with_items: "{{ users }}"
+  when: users is not none
+  tags: dotfiles

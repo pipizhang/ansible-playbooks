@@ -20,7 +20,7 @@
 - name: package - Install packages
   yum: name={{ item }}
   with_items:
-    - ack-grep
+    - ack
     - bash-completion
     - ca-certificates
     - htop

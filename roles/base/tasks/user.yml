@@ -21,6 +21,7 @@
   tags: user
 
 - name: user - Set password-less for sudoer
+  become: true
   lineinfile:
     dest="/etc/sudoers"
     regexp="^\%{{ item.name }}\s+ALL=\(ALL\)\s+NOPASSWD{{':'}}\s*ALL"
