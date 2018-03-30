@@ -1,2 +1,5 @@
-shell> cp password.example password
-shell> echo 'new password' > password
+### How to set vault password
+
+```bash
+echo 'your password' > password
+```
