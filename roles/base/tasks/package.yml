@@ -1,0 +1,36 @@
+---
+# file: roles/base/tasks/package.yml
+- name: package - Install packages
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+    - ack-grep
+    - bash-completion
+    - ca-certificates
+    - htop
+    - sudo
+    - wget
+    - curl
+    - screen
+    - finger
+    - vim
+    - git
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: package
+
+- name: package - Install packages
+  yum: name={{ item }}
+  with_items:
+    - ack-grep
+    - bash-completion
+    - ca-certificates
+    - htop
+    - sudo
+    - wget
+    - curl
+    - screen
+    - finger
+    - vim
+    - git
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  tags: package
+
