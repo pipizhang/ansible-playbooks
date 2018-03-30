@@ -1,0 +1,4 @@
+---
+# file: roles/base/tasks/main.yml
+- import_tasks: package.yml
+- import_tasks: user.yml

@@ -1,0 +1,40 @@
+---
+# file: roles/base/tasks/user.yml
+- name: user - Create users
+  become: true
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell|default('/bin/bash') }}"
+    create_home: true
+  with_items: "{{ users }}"
+  when: users is not none
+  tags: user
+
+- name: user - Append group for users
+  become: true
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups }}"
+    append: yes
+  with_items: "{{ users }}"
+  when: users is not none and item.groups is defined and item.groups != ""
+  tags: user
+
+- name: user - Set password-less for sudoer
+  lineinfile:
+    dest="/etc/sudoers"
+    regexp="^\%{{ item.name }}\s+ALL=\(ALL\)\s+NOPASSWD{{':'}}\s*ALL"
+    line="%{{ item.name }} ALL=(ALL) NOPASSWD{{':'}} ALL"
+  with_items: "{{ users }}"
+  when: users is not none and item.sudo_nopasswd is defined and item.sudo_nopasswd
+  tags: user
+
+- name: user - Set up authorized keys
+  become: true
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ item.ssh_key }}"
+  with_items: "{{ users }}"
+  tags: user
+
