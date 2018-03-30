@@ -15,4 +15,4 @@ ping: ## Ping hosts
 
 .PHONY: site
 site: ## Init site
-	exec ansible-playbook site.yml
+	exec ansible-playbook site.yml -v
