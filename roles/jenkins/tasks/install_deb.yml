@@ -2,6 +2,7 @@
 # file: roles/jenkins/tasks/main.yml
 - name: jenkins - Add apt key
   apt_key: url=http://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+  tags: jinkins
 
 - name: jenkins - Add apt repo
   apt_repository:
@@ -11,9 +12,11 @@
 
 - name: jenkins - Update apt
   apt: update_cache=yes
+  tags: jinkins
 
 - name: jenkins - Install Jenkins
   package:
     name: jenkins
     state: present
+  tags: jinkins
 

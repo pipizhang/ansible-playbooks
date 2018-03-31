@@ -1,6 +1,6 @@
 ---
-# file: plays/includes/jinkens.yml
-- name: Set up Jinkens
+# file: plays/includes/jenkins.yml
+- name: Set up Jenkins
   hosts: "{{ hosts }}"
   become: true
   roles:
