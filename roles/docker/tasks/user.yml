@@ -1,0 +1,12 @@
+---
+# file: roles/base/tasks/user.yml
+- name: docker - Append group for docker users
+  become: true
+  user:
+    name: "{{ item.name }}"
+    groups: docker
+    append: yes
+  with_items: "{{ users }}"
+  when: users is not none and 'sudo' in item.groups
+  tags: docker
+
