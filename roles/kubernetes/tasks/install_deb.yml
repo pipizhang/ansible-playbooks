@@ -1,0 +1,26 @@
+---
+# file: roles/kubernetes/tasks/install_deb.yml
+- name: k8s - Add apt key
+  apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg state=present
+  tags: k8s
+
+- name: k8s - Add apt repo
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    update_cache: yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'
+  tags: k8s
+
+#- name: k8s - Update apt
+  #apt: update_cache=yes
+
+- name: k8s - Install packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubernetes-cni
+  tags: k8s

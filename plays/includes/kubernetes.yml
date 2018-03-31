@@ -1,0 +1,8 @@
+---
+# file: plays/includes/kubernetes.yml
+- name: Set up Kubernetes
+  hosts: "{{ hosts }}"
+  become: true
+  roles:
+    - kubernetes
+
