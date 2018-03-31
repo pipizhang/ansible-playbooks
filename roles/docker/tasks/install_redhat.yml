@@ -1,0 +1,24 @@
+---
+# file: roles/docker/tasks/install_redhat.yml
+- name: docker - Install required packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+  tags: docker
+
+- name: docker - Add yum repo
+  yum_repository:
+    name: docker
+    description: Docker Repository
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+  tags: docker
+
+- name: docker - Install Docker
+  package:
+    name: docker-ce
+    state: present
+  tags: docker

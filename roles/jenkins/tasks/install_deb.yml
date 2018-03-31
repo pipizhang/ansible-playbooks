@@ -10,8 +10,7 @@
     update_cache: yes
 
 - name: jenkins - Update apt
-  apt:
-    update_cache: yes
+  apt: update_cache=yes
 
 - name: jenkins - Install Jenkins
   package:

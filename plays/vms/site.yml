@@ -1,8 +1,15 @@
 ---
 
-- name: Setup VMS
+- name: Set up VMS
   hosts: vms
   become: true
   roles:
     - base
     - jenkins
+
+- name: Set up Docker
+  hosts: vms
+  become: true
+  roles:
+    - docker
+

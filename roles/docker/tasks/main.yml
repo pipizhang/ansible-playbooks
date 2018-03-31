@@ -1,0 +1,5 @@
+# file: roles/docker/tasks/main.yml
+- import_tasks: install_deb.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- import_tasks: install_redhat.yml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
