@@ -1,2 +1,2 @@
 ---
-- import_playbook: ../includes/ping.yml inventory=vms
+- import_playbook: ../includes/ping.yml hosts=vms

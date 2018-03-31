@@ -1,15 +1,4 @@
 ---
-
-- name: Set up VMS
-  hosts: vms
-  become: true
-  roles:
-    - base
-    - jenkins
-
-- name: Set up Docker
-  hosts: vms
-  become: true
-  roles:
-    - docker
-
+- import_playbook: ../includes/base.yml hosts=vms
+- import_playbook: ../includes/docker.yml hosts=vms
+- import_playbook: ../includes/jenkins.yml hosts=vm01

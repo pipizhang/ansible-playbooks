@@ -1,0 +1,7 @@
+---
+# file: plays/includes/jinkens.yml
+- name: Set up Jinkens
+  hosts: "{{ hosts }}"
+  become: true
+  roles:
+    - jenkins
