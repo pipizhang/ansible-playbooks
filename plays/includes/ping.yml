@@ -1,7 +1,7 @@
 ---
 # file: plays/includes/ping.yml
 - name: Ping hosts
-  hosts: "{{ hosts }}"
+  hosts: "{{ myhosts }}"
   tasks:
     - name: ping
       ping:

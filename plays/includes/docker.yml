@@ -1,7 +1,7 @@
 ---
 # file: plays/includes/docker.yml
 - name: Set up Docker
-  hosts: "{{ hosts }}"
+  hosts: "{{ myhosts }}"
   become: true
   roles:
     - docker

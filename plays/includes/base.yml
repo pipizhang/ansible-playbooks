@@ -1,7 +1,7 @@
 ---
 # file: plays/includes/base.yml
 - name: Initialize System
-  hosts: "{{ hosts }}"
+  hosts: "{{ myhosts }}"
   become: true
   roles:
     - base
