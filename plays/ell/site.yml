@@ -1,0 +1,2 @@
+---
+- import_playbook: ../includes/base.yml myhosts=all

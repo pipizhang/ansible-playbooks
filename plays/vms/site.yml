@@ -1,5 +1,5 @@
 ---
-- import_playbook: ../includes/base.yml hosts=vms
-- import_playbook: ../includes/docker.yml hosts=vms
-- import_playbook: ../includes/jenkins.yml hosts=vm01
-- import_playbook: ../includes/kubernetes.yml hosts=vm02
+- import_playbook: ../includes/base.yml myhosts=vms
+- import_playbook: ../includes/docker.yml myhosts=vms
+#- import_playbook: ../includes/jenkins.yml hosts=vm01
+- import_playbook: ../includes/kubernetes.yml myhosts=vms
