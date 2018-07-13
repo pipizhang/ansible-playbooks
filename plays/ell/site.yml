@@ -1,2 +1,3 @@
 ---
 - import_playbook: ../includes/base.yml myhosts=all
+- import_playbook: ../includes/docker.yml myhosts=all

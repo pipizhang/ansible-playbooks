@@ -4,12 +4,20 @@
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg state=present
   tags: docker
 
-- name: docker - Add apt repo
+- name: docker - Add apt repo for Ubuntu 16.04
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
     state: present
     update_cache: yes
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'xenial'
+  tags: docker
+
+- name: docker - Add apt repo for Ubuntu 18.04
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+    update_cache: yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'bionic'
   tags: docker
 
 - name: docker - Update apt
