@@ -1,3 +1,6 @@
 ---
 - import_playbook: ../includes/base.yml myhosts=all
 - import_playbook: ../includes/docker.yml myhosts=all
+- import_playbook: ../includes/nginx.yml myhosts=all
+- import_playbook: ../includes/certbot.yml myhosts=all
+

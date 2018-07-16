@@ -1,0 +1,31 @@
+---
+# file: roles/nginx/tasks/install_deb.yml
+- name: nginx - Update apt
+  apt: update_cache=yes
+  tags: nginx
+
+- name: nginx - Install Nginx
+  package:
+    name: nginx
+    state: present
+  tags: nginx
+
+- name: nginx - Install snippets
+  copy:
+    src: "snippets/{{ item }}"
+    dest: "/etc/nginx/snippets/{{ item }}"
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - letsencrypt.conf
+    - ssl.conf
+  tags: nginx
+
+- name: nginx - Make certbot directory
+  file:
+    path: /var/www/letsencrypt/.well-known/acme-challenge
+    state: directory
+    mode: 0755
+    recurse: yes
+  tags: nginx

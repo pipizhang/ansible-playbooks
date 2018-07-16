@@ -1,0 +1,7 @@
+---
+# file: plays/includes/certbot.yml
+- name: Set up Certbot
+  hosts: "{{ myhosts }}"
+  become: true
+  roles:
+    - certbot

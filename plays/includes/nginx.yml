@@ -1,0 +1,9 @@
+---
+# file: plays/includes/nginx.yml
+- name: Set up Nginx
+  hosts: "{{ myhosts }}"
+  become: true
+  roles:
+    - nginx
+
+
