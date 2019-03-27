@@ -4,3 +4,4 @@ vagrant/.vagrant
 vagrant/*.log
 *.retry
 vpass/password
+venv
