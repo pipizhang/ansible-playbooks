@@ -40,3 +40,9 @@
     name: docker-ce
     state: present
   tags: docker
+
+- name: docker - Install docker-compose
+  package:
+    name: docker-compose
+    state: present
+  tags: docker
