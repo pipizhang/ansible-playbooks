@@ -3,3 +3,4 @@
 - import_tasks: package.yml
 - import_tasks: user.yml
 - import_tasks: dotfiles.yml
+- import_tasks: bash.yml
