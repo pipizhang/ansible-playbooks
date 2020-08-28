@@ -5,3 +5,4 @@ vagrant/*.log
 *.retry
 vpass/password
 venv
+.venv

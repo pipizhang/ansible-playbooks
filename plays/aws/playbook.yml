@@ -1,0 +1,5 @@
+---
+- import_playbook: ../includes/ping.yml myhosts=vms
+- import_playbook: ../includes/base.yml myhosts=vms
+- import_playbook: ../includes/docker.yml myhosts=vms
+
