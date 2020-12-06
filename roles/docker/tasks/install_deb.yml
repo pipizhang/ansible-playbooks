@@ -20,6 +20,14 @@
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'bionic'
   tags: docker
 
+- name: docker - Add apt repo for Ubuntu 20.04
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    state: present
+    update_cache: yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'focal'
+  tags: docker
+
 - name: docker - Update apt
   apt: update_cache=yes
 

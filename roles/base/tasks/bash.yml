@@ -24,9 +24,9 @@
       fi
   tags: bash
 
-- name: Update gitprompt
-  replace:
-    path: /usr/local/app/bash-git-prompt/gitprompt.sh
-    regexp: 'PS1="\${NEW_PROMPT'
-    replace: 'PS1="(\u@\h) ${NEW_PROMPT'
-  tags: bash
+  #- name: Update gitprompt
+  #  replace:
+  #    path: /usr/local/app/bash-git-prompt/gitprompt.sh
+  #    regexp: 'PS1="\${NEW_PROMPT'
+  #    replace: 'PS1="(\u@\h) ${NEW_PROMPT'
+  #  tags: bash

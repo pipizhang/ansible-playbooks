@@ -1,0 +1,8 @@
+---
+# file: plays/includes/ntp.yml
+- name: Set up Ntpd
+  hosts: "{{ myhosts }}"
+  become: true
+  roles:
+    - arillso.ntp
+  tags: play-ntp

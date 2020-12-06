@@ -6,3 +6,4 @@ vagrant/*.log
 vpass/password
 venv
 .venv
+vendor
